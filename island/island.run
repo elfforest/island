@@ -1,0 +1,12 @@
+#!/bin/env bash
+
+set -uo pipefail
+
+##
+SCRIPT="`dirname "$(readlink -f $0)"`"
+export ROOT="$SCRIPT"
+
+sbcl --eval "(load \"island.asd\")"\
+     --eval "(ql:quickload :island)"\
+     --eval "(island:-main)"\
+     --eval "(quit)"

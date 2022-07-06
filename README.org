@@ -1,0 +1,4 @@
+#+TITLE:Sample File
+#+STARTUP: showeverything
+
+* island(Остров)
