@@ -1,2 +1,0 @@
-(load "island.asd")
-(ql:quickload :island)

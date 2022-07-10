@@ -1,1 +1,0 @@
-(load "lsland.asd")

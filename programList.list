@@ -41,5 +41,7 @@ _PROGRAM_LIST="mc\
  npm\
  gimp\
  zsh\
- python3-pip	
+ python3-pip\
+ openssh-server\
+ i3	
 "

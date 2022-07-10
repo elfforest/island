@@ -1,4 +1,3 @@
-#+TITLE:Sample File
-#+STARTUP: showeverything
+#+TITLE: island(Остров)
 
-* island(Остров)
+* Остров
