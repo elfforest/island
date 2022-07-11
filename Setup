@@ -1,0 +1,64 @@
+#!/bin/env bash
+
+# обновсение системы
+sudo apt install update
+sudo apt full-upgrade
+
+#Устоновка emacs
+if [[ ! -f /bin/emacs ]]; then
+    sudo add-apt-repository ppa:kelleyk/emacs
+    sudo update
+    sudo apt install -y emacs28
+fi
+
+PROGRAM_LIST="mc\
+ git\
+ curl\
+ make\
+ cmake\
+ clang\
+ clang-format\
+ clang-tidy\
+ clang-tools\
+ clang\
+ clangd\
+ libc++-dev\
+ libc++1\
+ libc++abi-dev\
+ libc++abi1\
+ libclang-dev\
+ libclang1\
+ liblldb-dev\
+ libllvm-ocaml-dev\
+ libomp-dev\
+ libomp5\
+ lld\
+ lldb\
+ llvm-dev\
+ llvm-runtime\
+ llvm\
+ python3-clang\
+ spell\
+ aspell\
+ aspell-ru\
+ hunspell\
+ hunspell-ru\
+ graphviz\
+ build-essential\
+ tmux\
+ gnome-tweaks\
+ sqlite\
+ npm\
+ gimp\
+ zsh\
+ python3-pip\
+ openssh-server\
+ i3     
+"
+
+#Устоновка программ
+local array=(${PROGRAM_LIST})
+for item in ${array[*]}
+do
+    sudo apt install -y $item
+done

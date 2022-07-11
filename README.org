@@ -5,11 +5,106 @@
 (каждый комп это горд целый мир).
 Так я вижу мир и каждый комп это город. Он может быть нищим
 или богатым, красивым или грязным, все думали об этом.
+Так надо построить красивы мир и приятно жить в нём.
+** Чем я пользуюсь
+У меня система [[https://ubuntu.com/][Ubuntu-22.04]] настройки писать я буду под именно эту платформу.
+* Подготовка
+Мне нужны программы, главное редактор кода я выбрал и люблю [[https://www.gnu.org/software/emacs/][emacs]],
+далее github но и пока всё.
+** Установка программ
+С начало напишу главный каркас для моего кода
+#+begin_src bash :tangle Setup :noweb yes
+  #!/bin/env bash
+
+  <<upgrade>>
+
+  <<emacs>>
+
+  <<list_prog>>
+
+  <<prog>>
+#+end_src
+*** Обновление системы
+#+NAME: upgrade
+#+begin_src bash
+  # обновсение системы
+  sudo apt install update
+  sudo apt full-upgrade
+#+end_src
+*** Установка emacs
+#+NAME: emacs
+#+begin_src bash
+  #Устоновка emacs
+  if [[ ! -f /bin/emacs ]]; then
+      sudo add-apt-repository ppa:kelleyk/emacs
+      sudo update
+      sudo apt install -y emacs28
+  fi
+#+end_src
+*** Главная часть и большая самая установка программ
+#+NAME: prog
+#+begin_src bash
+  #Устоновка программ
+  local array=(${PROGRAM_LIST})
+  for item in ${array[*]}
+  do
+      sudo apt install -y $item
+  done
+
+#+end_src
+*** список для устоновки
+#+NAME: list_prog
+#+begin_src bash
+PROGRAM_LIST="mc\
+ git\
+ curl\
+ make\
+ cmake\
+ clang\
+ clang-format\
+ clang-tidy\
+ clang-tools\
+ clang\
+ clangd\
+ libc++-dev\
+ libc++1\
+ libc++abi-dev\
+ libc++abi1\
+ libclang-dev\
+ libclang1\
+ liblldb-dev\
+ libllvm-ocaml-dev\
+ libomp-dev\
+ libomp5\
+ lld\
+ lldb\
+ llvm-dev\
+ llvm-runtime\
+ llvm\
+ python3-clang\
+ spell\
+ aspell\
+ aspell-ru\
+ hunspell\
+ hunspell-ru\
+ graphviz\
+ build-essential\
+ tmux\
+ gnome-tweaks\
+ sqlite\
+ npm\
+ gimp\
+ zsh\
+ python3-pip\
+ openssh-server\
+ i3     
+"
+#+end_src
 * Как со мной связаться
 |-----+---------------------------------------------|
 | Имя | Адрес                                       |
 |-----+---------------------------------------------|
 | ok  | https://ok.ru/group/70000000174572          |
 | vk  | https://vk.com/club199040518                |
-| git | https://git@github.com:elfforest/island.git |
+| git | git@github.com:elfforest/island.git         |
 |-----+---------------------------------------------|
